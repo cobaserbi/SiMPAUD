@@ -43,6 +43,29 @@
                       <div class="row">
                           <div class="col-sm-12">
                             <div class="card-box table-responsive">
+                            <?php 
+                            if($this->session->userdata("info") == 1 ){
+                            ?>
+                            <div class="alert alert-success alert-dismissible " role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                                </button>
+                                <strong> 1 Data </strong> berhasil ditambahkan.
+                            </div>
+                            <?php
+                            }else if($this->session->userdata("info") == 2){
+                            ?>
+                            <div class="alert alert-danger alert-dismissible " role="alert">
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                                </button>
+                                <strong>1 Data </strong> berhasil dihapus.
+                            </div>
+                            <?php
+                            }else{
+
+                            }
+                            $this->session->set_userdata("info",0);
+                            ?>
+                              
                     <table id="datatable" class="table table-striped table-bordered" style="width:100%">
                       <thead>
                         <tr>

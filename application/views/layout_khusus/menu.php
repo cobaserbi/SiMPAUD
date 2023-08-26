@@ -4,6 +4,7 @@
                 <ul class="nav side-menu">
                   <li><a href="<?php echo base_url('pengembang'); ?>"><i class="fa fa-home"></i> Home</span></a></li>
                   <li><a href="<?php echo base_url('superUser'); ?>"><i class="fa fa-users"></i> Super User</span></a></li>
+                  <li><a href="<?php echo base_url('Akun'); ?>"><i class="fa fa-users"></i> Daftar Akun</span></a></li>
                 </ul>
               </div>
               <div class="menu_section">

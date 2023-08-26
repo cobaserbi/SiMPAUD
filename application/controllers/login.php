@@ -41,7 +41,8 @@ class Login extends CI_Controller {
 				'password' 	=> $password,
 				'nama'		=> $nama,
 				'foto'		=> $foto,
-                'status'   	=> $status
+                'status'   	=> $status,
+				'info'		=> 0
 				);
  
 			$this->session->set_userdata($data_session);
