@@ -9,11 +9,21 @@
               <div class="menu_section">
                 <h3>Data Sekolah</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-desktop"></i>Data Sekolah</a></li>
-                  <li><a><i class="fa fa-table"></i> Data Guru</a></li>                
+                  <li><a href="<?php echo base_url('sekolah'); ?>" ><i class="fa fa-institution"></i>Sekolah</a></li>
+                  <li><a href="<?php echo base_url('kepala_sekolah'); ?>"><i class="fa fa-user"></i>Kepala Sekolah</a></li>
+                  <li><a href="<?php echo base_url('kependidikan'); ?>"><i class="fa fa-group"></i>Kependidikan</a></li>
+                  <li><a href="<?php echo base_url('pendidik'); ?>"><i class="fa fa-group"></i>Tenaga Pendidik</a></li>
+                  <li><a href="<?php echo base_url('siswa'); ?>"><i class="fa fa-child"></i>Siswa</a></li>
+                  <li><a href="<?php echo base_url('orang_tua'); ?>"><i class="fa fa-male"></i>Orang Tua</a></li>           
                 </ul>
               </div>
-
+              <div class="menu_section">
+                <h3> Data PPDB</h3>
+                <ul class="nav side-menu">
+                  <li><a href="<?php echo base_url('ppdb'); ?>"><i class="fa fa-fax"></i>PPDB</a></li>
+                  <li><a href="<?php echo base_url('calon_siswa'); ?>"><i class="fa fa-child"></i>Calon Siswa</a></li>
+                </ul>
+              </div>
             </div>
             <!-- /sidebar menu -->
 

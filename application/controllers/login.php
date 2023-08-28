@@ -33,10 +33,12 @@ class Login extends CI_Controller {
 			$data1 = $this->m_login->cek_login("superuser",$where1)->result();
 			
 			foreach($data1 as $key1){
-				$nama = $key1->nama_superUser;
-				$foto = $key1->foto;
+				$id_superUser 	= $key1->id_superUser;
+				$nama 			= $key1->nama_superUser;
+				$foto 			= $key1->foto;
 			}
 			$data_session = array(
+				'id_sUser'	=> $id_superUser,
 				'username' 	=> $username,
 				'password' 	=> $password,
 				'nama'		=> $nama,
