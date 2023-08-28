@@ -40,7 +40,7 @@
                           <div class="col-sm-12">
                             <div class="card-box table-responsive">
                             <div class="x_content">
-                                    <form class="" action="<?php echo base_url('superUser/proses_tambah_superuser'); ?>" method="post" novalidate>
+                                    <form class="" action="<?php echo base_url('superUser/proses_tambah_superuser'); ?>" method="post" enctype="multipart/form-data" novalidate>
                                         </p>
                                         <span class="section">Personal Info</span>
                                         <div class="field item form-group">
@@ -117,7 +117,7 @@
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Foto<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                             <p>Pilih foto formal dengan ukuran 200kb</p>
-                                            <input type="file" name="foto">
+                                            <input type="file" name="fotoss">
                                             </div>
                                         </div>
                                         <div class="ln_solid">

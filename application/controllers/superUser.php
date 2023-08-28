@@ -74,7 +74,7 @@ class SuperUser extends CI_Controller {
                   
                   $this->load->library('upload', $config);
  
-		      if ( ! $this->upload->do_upload('foto')){
+		      if ( ! $this->upload->do_upload('fotoss')){
 			      echo " foto tidak bisa diupload";
       		      echo $this->upload->display_errors();
                   }else{
