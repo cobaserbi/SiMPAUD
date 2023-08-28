@@ -184,4 +184,13 @@ class SuperUser extends CI_Controller {
 
             }
       }
+
+      public function delete($id_superUser,$id_akun){
+            $where_superUser = array('id_superUser' => $id_superUser );
+            $where_akun = array('id_akun' => $id_akun );
+		$this->m_data->setHapus('akun',$where_akun);
+		$this->m_data->setHapus('superuser',$where_superUser);
+		$this->session->set_userdata("info",2);
+            redirect('SuperUser');
+      }
 }

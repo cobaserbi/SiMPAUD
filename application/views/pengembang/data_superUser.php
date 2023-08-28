@@ -99,7 +99,7 @@
                           <td valign="middle" align="center" style="font-size:18px;">
                             <a href="<?php echo base_url('superUser/detail'); ?>" class="text-primary"><i class="glyphicon glyphicon-tasks"></i></a>&nbsp; &nbsp; 
                             <a href="<?php echo base_url('superUser/edit/'.$key->id_superUser.'/'.$key->id_akun); ?>" class="text-warning"><i class="fa fa-edit"></i></a>&nbsp; &nbsp;
-                            <a href="<?php echo base_url('superUser/delete'.$key->id_superUser.'/'.$key->id_akun); ?>" class="text-danger"><i class="fa fa-trash"></i></a>&nbsp; &nbsp;
+                            <a href="<?php echo base_url('superUser/delete/'.$key->id_superUser.'/'.$key->id_akun); ?>" class="text-danger"><i class="fa fa-trash"></i></a>&nbsp; &nbsp;
                           </td>
                         </tr>
                         <?php
