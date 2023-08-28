@@ -193,4 +193,21 @@ class SuperUser extends CI_Controller {
 		$this->session->set_userdata("info",2);
             redirect('SuperUser');
       }
+
+      public function detail($id_superUser,$id_akun){
+            $where_superUser = array(
+                  'id_superUser' => $id_superUser
+            );
+            $where_akun = array(
+                  'id_akun' => $id_akun
+            );
+            $data = array(
+                  'title' 	      => "Detail - super user", 
+                  'isi' 	      => "pengembang/detail_superUser",
+                  'bagian'          => "Developer",
+                  'data'            => $this->m_data->getSelectWhere('superuser',$where_superUser),
+                  'data_akun'       => $this->m_data->getSelectWhere('akun',$where_akun)
+               );
+            $this->load->view('layout_khusus/wrapper',$data);
+      }
 }

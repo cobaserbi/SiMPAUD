@@ -27,6 +27,12 @@
     <script src="<?php echo base_url(); ?>assets/vendors/iCheck/icheck.min.js"></script>
     <!-- Skycons -->
     <script src="<?php echo base_url(); ?>assets/vendors/skycons/skycons.js"></script>
+    <!-- morris.js -->
+    <script src="<?php echo base_url(); ?>assets/vendors/raphael/raphael.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendors/morris.js/morris.min.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="<?php echo base_url(); ?>assets/vendors/moment/min/moment.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- Flot -->
     <script src="<?php echo base_url(); ?>assets/vendors/Flot/jquery.flot.js"></script>
     <script src="<?php echo base_url(); ?>assets/vendors/Flot/jquery.flot.pie.js"></script>
