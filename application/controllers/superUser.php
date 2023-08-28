@@ -51,7 +51,7 @@ class SuperUser extends CI_Controller {
             $data_akun = array(
                   'id_akun'         => "",
                   'username_akun'   => $username_superUser,
-                  'password_akun'   => $password1_superUser,
+                  'password_akun'   => md5($password1_superUser),
                   'status_akun'     => $status_akun
             );
 
@@ -95,6 +95,88 @@ class SuperUser extends CI_Controller {
                         $simpan_superUser = $this->m_data->setSimpan('superuser',$data_superUser);
                         if(isset($simpan_superUser) == false){
                               $this->session->set_userdata("info",1);
+                              redirect('SuperUser');
+                        }
+                  }
+            }else{
+
+            }
+      }
+
+      public function edit($id_superUser,$id_akun){
+            $where_superUser = array(
+                  'id_superUser' => $id_superUser
+            );
+            $where_akun = array(
+                  'id_akun' => $id_akun
+            );
+            $data = array(
+                  'title' 	      => "update- super user", 
+                  'isi' 	      => "pengembang/edit_superUser",
+                  'bagian'          => "Developer",
+                  'data'            => $this->m_data->getSelectWhere('superuser',$where_superUser),
+                  'data_akun'       => $this->m_data->getSelectWhere('akun',$where_akun)
+            );
+            $this->load->view('layout_khusus/wrapper',$data);
+      }
+
+      public function proses_edit_superuser(){
+            $nama_superUser 	            = $this->input->post('name');
+            $nik_superUser         	      = $this->input->post('nik');
+            $tempat_lahir_superUser       = $this->input->post('tempat_lahir');
+            $tanggal_lahir_superUser      = $this->input->post('date');
+            $email_superUser              = $this->input->post('email');
+            $username_superUser           = $this->input->post('username');
+            $password1_superUser          = $this->input->post('password');
+            $phone_superUser              = $this->input->post('phone');
+            $alamat_superUser             = $this->input->post('alamat');
+            $status_akun                  = $this->input->post('status_akun');
+            $id_superUser                 = $this->input->post('id_superUser');
+            $id_akun                      = $this->input->post('id_akun');
+
+            $where_akun = array(
+                  'id_akun'   => $id_akun 
+            );
+            $where_superUser = array(
+                  'id_superUser'    => $id_superUser
+            );
+
+            $data_akun = array(
+                  'username_akun'   => $username_superUser,
+                  'password_akun'   => md5($password1_superUser),
+                  'status_akun'     => $status_akun
+            );
+
+            $simpan_akun = $this->m_data->setEdit('akun',$where_akun,$data_akun);
+            if(isset($simpan_akun) == false){
+                  
+                  $config['upload_path']          = 'assets/images/foto';  // folder upload 
+                  $config['allowed_types']        = 'gif|jpg|png|jpeg'; // jenis file
+                  $config['max_size']             = 3000;
+                  $config['max_width']            = 1024;
+                  $config['max_height']           = 768;
+                  
+                  $this->load->library('upload', $config);
+ 
+		      if ( ! $this->upload->do_upload('fotoss')){
+			      echo " foto tidak bisa diupload";
+      		      echo $this->upload->display_errors();
+                  }else{
+                        $gambar			    = $this->upload->file_name;
+                        $data = array('upload_data' => $this->upload->data());
+                        $data_superUser = array(
+                              'nama_superUser'              => $nama_superUser,
+                              'nik_superUser'               => $nik_superUser,
+                              'tempat_lahir_superUser'      => $tempat_lahir_superUser,
+                              'tanggal_lahir_superUser'     => $tanggal_lahir_superUser,
+                              'alamat_superUser'            => $alamat_superUser,
+                              'email_superUser'             => $email_superUser,
+                              'no_telp_superUser'           => $phone_superUser,
+                              'foto'                        => $gambar  
+                        );
+                        $simpan_superUser = $this->m_data->setEdit('superuser',$where_superUser,$data_superUser);
+                        if(isset($simpan_superUser) == false){
+                              $this->session->set_userdata("info",3);
                               redirect('SuperUser');
                         }
                   }

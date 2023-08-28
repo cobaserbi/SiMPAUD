@@ -60,6 +60,14 @@
                                 <strong>1 Data </strong> berhasil dihapus.
                             </div>
                             <?php
+                            }else if($this->session->userdata("info") == 3){
+                              ?>
+                              <div class="alert alert-warning alert-dismissible " role="alert">
+                                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+                                  </button>
+                                  <strong>1 Data </strong> berhasil diubah.
+                              </div>
+                              <?php
                             }else{
 
                             }
@@ -90,8 +98,8 @@
                           <td><?php echo $key->status_akun; ?></td>
                           <td valign="middle" align="center" style="font-size:18px;">
                             <a href="<?php echo base_url('superUser/detail'); ?>" class="text-primary"><i class="glyphicon glyphicon-tasks"></i></a>&nbsp; &nbsp; 
-                            <a href="<?php echo base_url('superUser/edit'); ?>" class="text-warning"><i class="fa fa-edit"></i></a>&nbsp; &nbsp;
-                            <a href="<?php echo base_url('superUser/delete'); ?>" class="text-danger"><i class="fa fa-trash"></i></a>&nbsp; &nbsp;
+                            <a href="<?php echo base_url('superUser/edit/'.$key->id_superUser.'/'.$key->id_akun); ?>" class="text-warning"><i class="fa fa-edit"></i></a>&nbsp; &nbsp;
+                            <a href="<?php echo base_url('superUser/delete'.$key->id_superUser.'/'.$key->id_akun); ?>" class="text-danger"><i class="fa fa-trash"></i></a>&nbsp; &nbsp;
                           </td>
                         </tr>
                         <?php

@@ -40,51 +40,65 @@
                           <div class="col-sm-12">
                             <div class="card-box table-responsive">
                             <div class="x_content">
-                                    <form class="" action="<?php echo base_url('superUser/proses_ubah_superuser'); ?>" method="post" novalidate>
+                                    <form class="" action="<?php echo base_url('superUser/proses_edit_superuser'); ?>" method="post" enctype="multipart/form-data" novalidate>
                                         </p>
                                         <span class="section">Personal Info</span>
+                                        <?php
+                                            foreach ($data as $key) {
+                                        ?>
+                                        <input class="form-control" type="hidden" data-validate-length-range="6" data-validate-words="2" name="id_superUser" placeholder="" required="required" value="<?php echo $key->id_superUser?>"/>
+
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Nama Lengkap<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="" required="required" />
+                                                <input class="form-control" data-validate-length-range="6" data-validate-words="2" name="name" placeholder="" required="required" value="<?php echo $key->nama_superUser?>"/>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">NIK<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input type ="number" class="form-control" data-validate-length-range="16" data-validate-words="16" name="nik" placeholder="" required="required" />
+                                                <input type ="number" class="form-control" data-validate-length-range="16" data-validate-words="16" name="nik" placeholder="" required="required" value="<?php echo $key->nik_superUser?>"/>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tempat Lahir<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='optional' name="tempat_lahir" data-validate-length-range="5,15" type="text" /></div>
+                                                <input class="form-control" class='optional' name="tempat_lahir" data-validate-length-range="5,15" type="text" value="<?php echo $key->tempat_lahir_superUser?>"/></div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Tanggal Lahir<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" class='date' type="date" name="date" required='required'></div>
+                                                <input class="form-control" class='date' type="date" name="date" required='required' value="<?php echo $key->tanggal_lahir_superUser?>"></div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">email<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" name="email" class='email' required="required" type="email" /></div>
+                                                <input class="form-control" name="email" class='email' required="required" type="email" value="<?php echo $key->email_superUser?>"/></div>
                                         </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Confirm email address<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
                                                 <input class="form-control" type="email" class='email' name="confirm_email" data-validate-linked='email' required='required' /></div>
                                         </div>
+                                        <?php
+                                            foreach ($data_akun as $key_akun) {
+                                        ?>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">ID Akun<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                                <input type="text "class="form-control" data-validate-length-range="6" data-validate-words="2" name="id_akun" placeholder="" required="required" value="<?php echo $key_akun->id_akun; ?>" readonly/>
+                                            </div>
+                                        </div>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">Username<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input type="text "class="form-control" data-validate-length-range="6" data-validate-words="2" name="username" placeholder="" required="required" />
+                                                <input type="text "class="form-control" data-validate-length-range="6" data-validate-words="2" name="username" placeholder="" required="required" value="<?php echo $key_akun->username_akun; ?>"/>
                                             </div>
                                         </div>
                                         <div class="field item form-group">
 											<label class="col-form-label col-md-3 col-sm-3  label-align">Password<span class="required">*</span></label>
 											<div class="col-md-6 col-sm-6">
-												<input class="form-control" type="password" id="password1" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="=minimal 8 karakter" required />
+												<input class="form-control" type="password" id="password1" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}" title="=minimal 8 karakter" required value="<?php echo $key_akun->password_akun; ?>"/>
 												
 												<span style="position: absolute;right:15px;top:7px;" onclick="hideshow()" >
 													<i id="slash" class="fa fa-eye-slash"></i>
@@ -103,15 +117,25 @@
                                                 <input type="text "class="form-control" data-validate-length-range="1" data-validate-words="1" name="status_akun" placeholder="" required="required" value="admin_sekolah" readonly/>
                                             </div>
                                         </div>
+                                        <?php
+                                            }
+                                        ?>
                                         <div class="field item form-group">
                                             <label class="col-form-label col-md-3 col-sm-3  label-align">No Telepon<span class="required">*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" /></div>
+                                                <input class="form-control" type="tel" class='tel' name="phone" required='required' data-validate-length-range="8,20" value="<?php echo $key->no_telp_superUser?>"/></div>
                                         </div>
                                         <div class="field item form-group">
-                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Alamat<span class="required">*</span></label>
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Alamat<span class="required" >*</span></label>
                                             <div class="col-md-6 col-sm-6">
-                                                <textarea required="required" name='alamat'></textarea></div>
+                                                <textarea required="required" name='alamat'><?php echo $key->alamat_superUser; ?></textarea></div>
+                                        </div>
+                                        <div class="field item form-group">
+                                            <label class="col-form-label col-md-3 col-sm-3  label-align">Foto<span class="required">*</span></label>
+                                            <div class="col-md-6 col-sm-6">
+                                            <p>Pilih foto formal dengan ukuran 200kb</p>
+                                            <input type="file" name="fotoss" value="<?php echo $key->foto; ?>">
+                                            </div>
                                         </div>
                                         <div class="ln_solid">
                                             <div class="form-group">
@@ -121,6 +145,9 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <?php    
+                                            }
+                                        ?>
                                     </form>
                                 </div>
         <!-- /page content -->
